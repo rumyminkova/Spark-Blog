@@ -1,0 +1,23 @@
+{{#partial "content"}}
+
+<section>
+    <div class="container">
+        <div class="entry-list">
+           {{#each blogEntries}}
+             <article>
+                 <form action="/entries/{{ slug }}" method="post">
+                    <h2><a href= "/entries/{{ slug }}"> {{ title }} </a></h2>
+                    posted on <time datetime="{{dateCreated}}">{{dateCreated}}</time>
+                  </form> <br>
+                     {{#each this.blogEntryTags}}
+                        <form action="/tags/{{this}}" method="post">
+                            <input type="submit" value="{{this}}" class="tag-button">
+                        </form>
+                     {{/each}}
+              </article>
+           {{/each}}
+         </div>
+    </div>
+</section>
+{{/partial}}
+{{>base.hbs}}

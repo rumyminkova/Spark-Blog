@@ -1,0 +1,25 @@
+{{#partial "content"}}
+<section>
+    <div class="container">
+        <div class="new-entry">
+            <h2>Publish New Entry</h2>
+            <form action="/entries/new-entry/new-entry" method="post">
+                <label for="title"> Title</label>
+                <input type="text" name="title"><br>
+                <label for="body">Entry</label>
+                <textarea rows="5" name="body"></textarea>
+                <label for="tags">Tags</label>
+                {{#each tagsList}}
+                    <input type="checkbox" name="tags" value={{this}}> {{this}}
+                {{/each}}
+                <br>
+                <br>
+                    <input type="submit" value="Publish Entry" class="button">
+                <a href="/" class="button button-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</section>
+{{/partial}}
+{{>base.hbs}}
+
